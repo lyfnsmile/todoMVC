@@ -39,8 +39,19 @@ class App extends Component {
   
   componentDidMount() {
     const { dispatch } = this.props
-    //dispatch(fetchPosts('SHOW_ALL'))
+    dispatch(fetchPosts())
     console.log(this.props)
+  }
+
+  //组件即将更新时触发
+  componentWillReceiveProps(nextFilter) {
+    const { dispatch } = this.props
+    // console.log('执行componentWillReceiveProps',nextFilter,this.props);
+    // if (nextFilter.visibleTodos.length !== this.props.visibleTodos.length+1) {
+    //   //const { dispatch, selectedReddit } = nextProps
+    //    dispatch(fetchPosts())
+    // }
+   
   }
 }
 

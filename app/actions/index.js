@@ -18,6 +18,7 @@ export function addTodo(text) {
 }
 
 export function completeTodo(index) {
+  console.log(index)
     return {
         type: COMPLETE_TODO,
         index
@@ -33,10 +34,10 @@ export function setVisibilityFilter(filter) {
 }
 
 //初始化
-export function fetchPosts(filter) {
+export function fetchPosts() {
     return dispatch => {
         return fetch('http://localhost:4000/db')
             .then(response => response.json())
-            .then(json => dispatch(setVisibilityFilter(json)))
+            .then(json => dispatch(addTodo(json[0].text)))
     }
 }
